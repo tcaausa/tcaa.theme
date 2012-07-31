@@ -22,9 +22,14 @@
     <javascript id="toc.js"                                                                     expression="not:request/HTTP_X_THEME_ENABLED | nothing" /> 
     <javascript id="collapsibleformfields.js"                                                   expression="not:request/HTTP_X_THEME_ENABLED | nothing" /> 
     <javascript id="++resource++plone.app.discussion.javascripts/comments.js"                   expression="not:request/HTTP_X_THEME_ENABLED | nothing" /> 
-    <javascript id="++resource++plone.formwidget.contenttree/contenttree.js"                    expression="not:request/HTTP_X_THEME_ENABLED | nothing" /> 
-    <javascript id="++resource++plone.formwidget.autocomplete/jquery.autocomplete.min.js"       expression="not:request/HTTP_X_THEME_ENABLED | nothing" /> 
     <javascript id="++resource++plone.app.debugtoolbar/debugtoolbar.js"                         expression="not:request/HTTP_X_THEME_ENABLED | nothing" /> 
+    <!-- manually adjust the following, re-running the js step screws things up somehow -->
+    <javascript id="++resource++plone.app.jquerytools.js"                                       expression="not:request/HTTP_X_THEME_ENABLED | nothing" /> 
+    <javascript id="++resource++plone.app.jquerytools.overlayhelpers.js"                        expression="not:request/HTTP_X_THEME_ENABLED | nothing" />
+    <javascript id="++resource++plone.app.jquerytools.form.js"                                  expression="not:request/HTTP_X_THEME_ENABLED | nothing" />
+    <javascript id="++resource++plone.formwidget.contenttree/contenttree.js"                    expression="not:request/HTTP_X_THEME_ENABLED | nothing" /> 
+    <javascript id="++resource++plone.formwidget.autocomplete/jquery.autocomplete.min.js"       expression="not:request/HTTP_X_THEME_ENABLED | nothing" />
+    <javascript id="mark_special_links.js"                                                      expression="not:request/HTTP_X_THEME_ENABLED | nothing" />
 
     <!-- TCAA theme javascript -->
     <javascript id="++theme++tcaa.theme/js/lib/jquery/1.7/jquery.min.js"                            expression="request/HTTP_X_THEME_ENABLED | nothing" 
