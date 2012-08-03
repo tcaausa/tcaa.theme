@@ -10,6 +10,10 @@ var Controller = new (function(){
     this.pageData = null;
     this.hashBangRE = /^#!(.*)$/;
 
+    if (location.origin == null) {
+        location.origin = location.protocol + '//' + location.hostname;
+    }
+
     // Seeing issues with popstate, so disabling this for now.
     // this.supportsPushState = !!(window.history && history.pushState);
     this.supportsPushState = false;
@@ -160,8 +164,11 @@ var Controller = new (function(){
         $('a', context).each(function(){
             var link = $(this);
             var href = link.attr('href');
+            if (href.indexOf(location.origin) == 0) {
+                // url is absolute - strip domain
+                href = href.replace(location.origin,'');
+            }
             if (self.pageIndicesByUrl.hasOwnProperty(href) && href.match(self.hashBangRE) === null) {
-                
                 link.attr('href', '/#!' + href);
                 link.click(function(e){
                     if (href == self.getHashBangUrl(location.hash)) {
@@ -371,10 +378,12 @@ var Controller = new (function(){
     this.loadPage = function(page, content) {
         if (page.data('loaded')) return;
         if (content) {
+            self.initHashBangLinks(content);
+            self.initFlowPlayer(content);
             page.html(content);
         } else {
             page.load(this.getUrlByPage(page), function(){
-                self.initHashBangLinks();
+                self.initHashBangLinks(page);
                 self.initFlowPlayer(page);
                 if (page.find('#contact-form').length > 0){
                     self.initContactFormManager(page);
