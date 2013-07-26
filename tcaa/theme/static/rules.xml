@@ -25,7 +25,7 @@
                theme-children="/html/head" />
         <after content="/html/head/title"
                theme-children="/html/head" />
-        
+
         <copy attributes="class id dir"
               content="/html/body"
               theme="/html/body" />
@@ -65,9 +65,7 @@
         <!-- navigation -->
         <replace css:content="#tcaa-navigation"
                  css:theme-children="#page-menu" />
-        <replace css:content="#page-twitter"
-                 css:theme="#page-twitter" />
-        <replace css:content="#page-channels" 
+        <replace css:content="#page-channels"
                  css:theme="#page-channels" />
         <!-- content -->
         <replace css:content-children="#content-core"
